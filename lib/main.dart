@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: MyApp(), routes: {
@@ -212,18 +213,137 @@ class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Second Page'),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Action for floating button
+          print('Floating Action Button Pressed');
+        },
+        child: Icon(Icons.add),
+        foregroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 158, 217, 180),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to the previous page when the button is pressed
-            Navigator.pop(context);
-          },
-          child: Text('Go Back'),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Color.fromARGB(255, 233, 232, 232),
+        shape: CircularNotchedRectangle(),
+        notchMargin: 8.0,
+        child: Container(
+          margin: EdgeInsets.fromLTRB(20, 3, 20, 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.home_outlined),
+                iconSize: 29,
+
+                onPressed: () {
+                  // _onItemTapped(0);
+                },
+                // color: _selectedIndex == 0 ? Colors.blue : Colors.grey,
+              ),
+              IconButton(
+                icon: Icon(Icons.chat_outlined),
+                iconSize: 25,
+                onPressed: () {
+                  //  _onItemTapped(1);
+                },
+                // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+              ),
+              SizedBox(width: 40), // The empty space for the floating button
+              IconButton(
+                icon: Icon(Icons.map_outlined),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/secondpage');
+                },
+                iconSize: 27,
+
+                //  color: _selectedIndex == 2 ? Colors.blue : Colors.grey,
+              ),
+              IconButton(
+                icon: Icon(Icons.person_outline),
+                onPressed: () {
+                  //   _onItemTapped(3);
+                },
+                iconSize: 27,
+
+                // color: _selectedIndex == 3 ? Colors.blue : Colors.grey,
+              ),
+            ],
+          ),
         ),
       ),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(244, 248, 245, 245),
+        elevation: 0,
+        flexibleSpace: Container(
+          margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios_new_outlined),
+                onPressed: () {
+                  Navigator.pop(context);
+                  // Action for back button
+                  print('Back button pressed');
+                },
+                color: Colors.black,
+              ),
+              Text(
+                'Itinéraires',
+                style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
+              ),
+              Row(
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.more_vert_outlined),
+                    onPressed: () {
+                      // Action for more button
+                      print('More button pressed');
+                    },
+                    color: Colors.black,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      body:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Card(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Column(
+                    children: [
+                      Text('Card 1 Title'),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 158, 217, 180),
+                        ),
+                        onPressed: () {
+                          // Action for button 1
+                          print('Button 1 pressed');
+                        },
+                        child: Text('Consulter'),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: Image(
+                      image: AssetImage('assets/image3.png'),
+                      width: 100.0,
+                      height: 100.0),
+                ),
+              ]),
+        ),
+      ]),
     );
   }
 }
