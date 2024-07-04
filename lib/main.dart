@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: MyApp(), routes: {
@@ -319,8 +318,18 @@ class _SecondPageState extends State<SecondPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Card 1 Title'),
+                      Text(
+                        'Mon itinéraire',
+                        style:
+                            TextStyle(fontSize: 20, fontFamily: 'Montserrat'),
+                      ),
+                      Text(
+                        'Alger-TiziOuzou',
+                        style: TextStyle(
+                            fontSize: 14, fontFamily: 'MontserratMedium'),
+                      ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 158, 217, 180),
