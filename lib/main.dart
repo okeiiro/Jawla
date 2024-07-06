@@ -751,7 +751,7 @@ class _MapPageState extends State<MapPage> {
                   (BuildContext context, ScrollController scrollController) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 241, 238, 236),
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(20)),
                   ),
