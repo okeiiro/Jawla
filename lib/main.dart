@@ -5,6 +5,7 @@ void main() => runApp(MaterialApp(home: MyApp(), routes: {
       '/secondpage': (context) => SecondPage(),
       '/chatbot': (context) => Chatbot(),
       '/carteSite': (context) => MapPage(),
+      '/home': (context) => HomePage(),
     }));
 
 class MyApp extends StatefulWidget {
@@ -152,6 +153,8 @@ class _MyAppState extends State<MyApp> {
                     iconSize: 29,
 
                     onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+
                       // _onItemTapped(0);
                     },
                     // color: _selectedIndex == 0 ? Colors.blue : Colors.grey,
@@ -765,10 +768,10 @@ class _MapPageState extends State<MapPage> {
                         Center(
                           child: Container(
                             height: 4,
-                            width: 60,
+                            width: 90,
                             margin: EdgeInsets.symmetric(vertical: 10),
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 205, 204, 204),
+                              color: Color.fromARGB(255, 174, 173, 173),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
@@ -828,15 +831,18 @@ class _MapPageState extends State<MapPage> {
                                       '20KM',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13,
                                         fontFamily: 'Montserrat',
                                       ),
                                     ),
                                   ],
                                 ),
-                                VerticalDivider(
-                                  thickness: 1,
-                                  color: Colors.black,
+                                Container(
+                                  height: 50,
+                                  child: VerticalDivider(
+                                    thickness: 1,
+                                    color: Colors.black,
+                                  ),
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -844,7 +850,7 @@ class _MapPageState extends State<MapPage> {
                                     IconButton(
                                       icon:
                                           Icon(Icons.qr_code_scanner_outlined),
-                                      iconSize: 30,
+                                      iconSize: 35,
                                       onPressed: () {
                                         Navigator.pushNamed(
                                             context, '/chatbot');
@@ -854,22 +860,25 @@ class _MapPageState extends State<MapPage> {
                                       'Résérvé',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13,
                                         fontFamily: 'Montserrat',
                                       ),
                                     ),
                                   ],
                                 ),
-                                VerticalDivider(
-                                  thickness: 1,
-                                  color: Colors.black,
+                                Container(
+                                  height: 50,
+                                  child: VerticalDivider(
+                                    thickness: 1,
+                                    color: Colors.black,
+                                  ),
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     IconButton(
                                       icon: Icon(Icons.timelapse_outlined),
-                                      iconSize: 30,
+                                      iconSize: 35,
                                       onPressed: () {
                                         Navigator.pushNamed(
                                             context, '/chatbot');
@@ -879,7 +888,7 @@ class _MapPageState extends State<MapPage> {
                                       'Ouvert',
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
-                                        fontSize: 12,
+                                        fontSize: 13,
                                         fontFamily: 'Montserrat',
                                       ),
                                     ),
@@ -902,9 +911,9 @@ class _MapPageState extends State<MapPage> {
                           ),
                         ),
                         Container(
-                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                           child: Text(
-                            'Description',
+                            'La basilique est construite sur un promontoire dominant la mer de 124 m, au nord d\'Alger1. Elle est accessible par un téléphérique qui porte son nom depuis Bologhine (ex-Saint-Eugène), où se trouve le cimetière Saint-Eugène. Elle est considérée comme « la sœur jumelle de la basilique marseillaise Notre-Dame-de-la-Garde2. »\n\nLa basilique est surnommée « Madame l\’Afrique » ou « Lalla Myriem »1 par les habitants du voisinageN 1. Pour le journaliste Lyes Menacer, elle constitue un « symbole du brassage culturel et de la cohabitation religieuse depuis 160 ans »2. En témoignent l\'inscription célèbre dans le chœur : « Notre Dame d\’Afrique, priez pour nous et pour les musulmans », ainsi qu\'une autre phrase, écrite en français, arabe et kabyle : « L\'amour fraternel vient de Dieu. Il est Dieu même. »',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 13,
@@ -1030,6 +1039,29 @@ class _MapPageState extends State<MapPage> {
               ),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  double _currentSheetSize = 0.1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        // color: Colors.black.withOpacity(0.5),
+
+        child: Image.asset(
+          'assets/Groupe11.png', // Replace with your image
+          fit: BoxFit.fitWidth,
+        ),
       ),
     );
   }
