@@ -364,7 +364,7 @@ class _SecondPageState extends State<SecondPage> {
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0),
                   child: Image(
-                      image: AssetImage('assets/image3.png'),
+                      image: AssetImage('assets/image8.png'),
                       width: 100.0,
                       height: 100.0),
                 ),
@@ -413,7 +413,7 @@ class _SecondPageState extends State<SecondPage> {
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0),
                   child: Image(
-                      image: AssetImage('assets/image3.png'),
+                      image: AssetImage('assets/image8.png'),
                       width: 100.0,
                       height: 100.0),
                 ),
@@ -735,6 +735,7 @@ class _MapPageState extends State<MapPage> {
                 ),
               ),
             ),
+
           // Draggable Scrollable Sheet
           NotificationListener<DraggableScrollableNotification>(
             onNotification: (notification) {
@@ -744,8 +745,8 @@ class _MapPageState extends State<MapPage> {
               return true;
             },
             child: DraggableScrollableSheet(
-              initialChildSize: 0.2,
-              minChildSize: 0.2,
+              initialChildSize: 0.24,
+              minChildSize: 0.24,
               maxChildSize: 0.67,
               builder:
                   (BuildContext context, ScrollController scrollController) {
@@ -755,35 +756,279 @@ class _MapPageState extends State<MapPage> {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(20)),
                   ),
-                  child: Column(
-                    children: [
-                      // Handle for the draggable sheet
-                      Container(
-                        height: 5,
-                        width: 40,
-                        margin: EdgeInsets.symmetric(vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(10),
+                  child: SingleChildScrollView(
+                    controller: scrollController,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Handle for the draggable sheet
+                        Center(
+                          child: Container(
+                            height: 4,
+                            width: 60,
+                            margin: EdgeInsets.symmetric(vertical: 10),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 205, 204, 204),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                          controller: scrollController,
-                          itemCount: 20,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Text('Item $index'),
-                            );
-                          },
+                        SizedBox(height: 20),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 0, 0, 5),
+                          child: Text(
+                            'Basilique Notre Dame D\'Afrique',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
                         ),
-                      ),
-                    ],
+                        // Add more widgets here as needed
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
+                              child: Text(
+                                'Rue Bologhine, Alger',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: 'MontserratMedium',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Center(
+                          child: Container(
+                            width: 370,
+                            height: 90,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.black)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.map_outlined),
+                                      iconSize: 35,
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/chatbot');
+                                      },
+                                    ),
+                                    Text(
+                                      '20KM',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                VerticalDivider(
+                                  thickness: 1,
+                                  color: Colors.black,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      icon:
+                                          Icon(Icons.qr_code_scanner_outlined),
+                                      iconSize: 30,
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/chatbot');
+                                      },
+                                    ),
+                                    Text(
+                                      'Résérvé',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                VerticalDivider(
+                                  thickness: 1,
+                                  color: Colors.black,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.timelapse_outlined),
+                                      iconSize: 30,
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, '/chatbot');
+                                      },
+                                    ),
+                                    Text(
+                                      'Ouvert',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Montserrat',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 15, 0, 5),
+                          child: Text(
+                            'Description',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Montserrat',
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                          child: Text(
+                            'Description',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'MontserratMedium',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
             ),
           ),
+          if (_currentSheetSize >= 0.63)
+            Positioned(
+              right: 15,
+              top: MediaQuery.of(context).size.height * 0.28,
+              child: Opacity(
+                opacity: (_currentSheetSize - 0.5) * 5.8, // Fade in effect
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        spreadRadius: 4,
+                        blurRadius: 5,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                    color: Color.fromARGB(255, 236, 234, 227),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    icon: Icon(Icons.bookmark_outlined),
+                    iconSize: 30,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/chatbot');
+                    },
+                    // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                  ),
+                ),
+              ),
+            ),
+
+          if (_currentSheetSize >= 0.63)
+            Positioned(
+              left: 7,
+              right: 0,
+              top: MediaQuery.of(context).size.height * 0.26,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Opacity(
+                      opacity:
+                          (_currentSheetSize - 0.5) * 5.8, // Fade in effect
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: IconButton(
+                          icon: Icon(Icons.star),
+                          iconSize: 30,
+                          color: Color.fromARGB(255, 215, 223, 219),
+
+                          onPressed: () {},
+                          // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Opacity(
+                      opacity:
+                          (_currentSheetSize - 0.5) * 5.8, // Fade in effect
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: IconButton(
+                          icon: Icon(Icons.star_border_outlined),
+                          iconSize: 30,
+                          color: Color.fromARGB(255, 218, 225, 219),
+
+                          onPressed: () {},
+                          // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Opacity(
+                      opacity:
+                          (_currentSheetSize - 0.5) * 5.8, // Fade in effect
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: IconButton(
+                          icon: Icon(Icons.star_border_outlined),
+                          iconSize: 30,
+                          color: Color.fromARGB(255, 215, 222, 216),
+
+                          onPressed: () {},
+                          // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                        ),
+                      ),
+                    ),
+                    Opacity(
+                      opacity:
+                          (_currentSheetSize - 0.5) * 5.8, // Fade in effect
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        child: IconButton(
+                          icon: Icon(Icons.star_border_outlined),
+                          iconSize: 30,
+                          color: Color.fromARGB(255, 212, 221, 213),
+
+                          onPressed: () {},
+                          // color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
         ],
       ),
     );
