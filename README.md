@@ -1,6 +1,6 @@
 # myapp
 
-Frontend mobile application for a trip planning app
+Frontend mobile application for a trip planning app.
 ## Getting Started
 
 
